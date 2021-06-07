@@ -36,11 +36,7 @@ public class Quadrilateral extends Figure {
         double Xa = (b2 - b1) / (A1 - A2);
         double Ya = A1 * Xa + b1;
 
-        if (delta != 0 && (Xa <= Math.max(a.getX(), c.getX())) && (Xa >= Math.min(a.getX(), c.getX())) && (Xa <= Math.max(b.getX(), d.getX())) && (Xa >= Math.min(b.getX(), d.getX()))) {
-            return true;
-        } else {
-            return false;
-        }
+        return delta != 0 && (Xa <= Math.max(a.getX(), c.getX())) && (Xa >= Math.min(a.getX(), c.getX())) && (Xa <= Math.max(b.getX(), d.getX())) && (Xa >= Math.min(b.getX(), d.getX()));
     }
 
     public Point centroid() {
@@ -65,18 +61,13 @@ public class Quadrilateral extends Figure {
 
     public boolean isTheSame(Figure figure) {
         if (figure instanceof Quadrilateral) {
-            if (((delta(a.getX(), ((Quadrilateral) figure).a.getX()) && delta(a.getY(), ((Quadrilateral) figure).a.getY())) || (delta(a.getX(), ((Quadrilateral) figure).b.getX()) && delta(a.getY(), ((Quadrilateral) figure).b.getY())) || (delta(a.getX(), ((Quadrilateral) figure).c.getX()) && delta(a.getY(), ((Quadrilateral) figure).c.getY())) || (delta(a.getX(), ((Quadrilateral) figure).d.getX()) && delta(a.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(b.getX(), ((Quadrilateral) figure).a.getX()) && delta(b.getY(), ((Quadrilateral) figure).a.getY())) || (delta(b.getX(), ((Quadrilateral) figure).b.getX()) && delta(b.getY(), ((Quadrilateral) figure).b.getY())) || (delta(b.getX(), ((Quadrilateral) figure).c.getX()) && delta(b.getY(), ((Quadrilateral) figure).c.getY())) || (delta(b.getX(), ((Quadrilateral) figure).d.getX()) && delta(b.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(c.getX(), ((Quadrilateral) figure).a.getX()) && delta(c.getY(), ((Quadrilateral) figure).a.getY())) || (delta(c.getX(), ((Quadrilateral) figure).b.getX()) && delta(c.getY(), ((Quadrilateral) figure).b.getY())) || (delta(c.getX(), ((Quadrilateral) figure).c.getX()) && delta(c.getY(), ((Quadrilateral) figure).c.getY())) || (delta(c.getX(), ((Quadrilateral) figure).d.getX()) && delta(c.getY(), ((Quadrilateral) figure).d.getY())))) {
-                return true;
-            }
+            return ((delta(a.getX(), ((Quadrilateral) figure).a.getX()) && delta(a.getY(), ((Quadrilateral) figure).a.getY())) || (delta(a.getX(), ((Quadrilateral) figure).b.getX()) && delta(a.getY(), ((Quadrilateral) figure).b.getY())) || (delta(a.getX(), ((Quadrilateral) figure).c.getX()) && delta(a.getY(), ((Quadrilateral) figure).c.getY())) || (delta(a.getX(), ((Quadrilateral) figure).d.getX()) && delta(a.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(b.getX(), ((Quadrilateral) figure).a.getX()) && delta(b.getY(), ((Quadrilateral) figure).a.getY())) || (delta(b.getX(), ((Quadrilateral) figure).b.getX()) && delta(b.getY(), ((Quadrilateral) figure).b.getY())) || (delta(b.getX(), ((Quadrilateral) figure).c.getX()) && delta(b.getY(), ((Quadrilateral) figure).c.getY())) || (delta(b.getX(), ((Quadrilateral) figure).d.getX()) && delta(b.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(c.getX(), ((Quadrilateral) figure).a.getX()) && delta(c.getY(), ((Quadrilateral) figure).a.getY())) || (delta(c.getX(), ((Quadrilateral) figure).b.getX()) && delta(c.getY(), ((Quadrilateral) figure).b.getY())) || (delta(c.getX(), ((Quadrilateral) figure).c.getX()) && delta(c.getY(), ((Quadrilateral) figure).c.getY())) || (delta(c.getX(), ((Quadrilateral) figure).d.getX()) && delta(c.getY(), ((Quadrilateral) figure).d.getY())));
         }
         return false;
     }
 
     public static boolean delta(double value_1, double value_2){
-        if(Math.abs(value_1 - value_2) <= (Math.abs(value_1 - value_2)/Math.max(Math.abs(value_1), Math.abs(value_2)))){
-            return true;
-        }
-        return false;
+        return Math.abs(value_1 - value_2) <= (Math.abs(value_1 - value_2) / Math.max(Math.abs(value_1), Math.abs(value_2)));
     }
 }
 

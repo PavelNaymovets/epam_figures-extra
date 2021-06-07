@@ -23,18 +23,13 @@ public class Triangle extends Figure {
 
     public boolean isTheSame(Figure figure){
         if(figure instanceof Triangle){
-            if(((delta(a.getX(), ((Triangle) figure).a.getX()) && delta(a.getY(), ((Triangle) figure).a.getY())) || (delta(a.getX(), ((Triangle) figure).b.getX()) && delta(a.getY(), ((Triangle) figure).b.getY())) || (delta(a.getX(), ((Triangle) figure).c.getX()) && delta(a.getY(), ((Triangle) figure).c.getY()))) && ((delta(b.getX(), ((Triangle) figure).a.getX()) && delta(b.getY(), ((Triangle) figure).a.getY())) || (delta(b.getX(), ((Triangle) figure).b.getX()) && delta(b.getY(), ((Triangle) figure).b.getY())) || (delta(b.getX(), ((Triangle) figure).c.getX()) && delta(b.getY(), ((Triangle) figure).c.getY()))) && ((delta(c.getX(), ((Triangle) figure).a.getX()) && delta(c.getY(), ((Triangle) figure).a.getY())) || (delta(c.getX(), ((Triangle) figure).b.getX()) && delta(c.getY(), ((Triangle) figure).b.getY())) || (delta(c.getX(), ((Triangle) figure).c.getX()) && delta(c.getY(), ((Triangle) figure).c.getY())))){
-                return true;
-            }
+            return ((delta(a.getX(), ((Triangle) figure).a.getX()) && delta(a.getY(), ((Triangle) figure).a.getY())) || (delta(a.getX(), ((Triangle) figure).b.getX()) && delta(a.getY(), ((Triangle) figure).b.getY())) || (delta(a.getX(), ((Triangle) figure).c.getX()) && delta(a.getY(), ((Triangle) figure).c.getY()))) && ((delta(b.getX(), ((Triangle) figure).a.getX()) && delta(b.getY(), ((Triangle) figure).a.getY())) || (delta(b.getX(), ((Triangle) figure).b.getX()) && delta(b.getY(), ((Triangle) figure).b.getY())) || (delta(b.getX(), ((Triangle) figure).c.getX()) && delta(b.getY(), ((Triangle) figure).c.getY()))) && ((delta(c.getX(), ((Triangle) figure).a.getX()) && delta(c.getY(), ((Triangle) figure).a.getY())) || (delta(c.getX(), ((Triangle) figure).b.getX()) && delta(c.getY(), ((Triangle) figure).b.getY())) || (delta(c.getX(), ((Triangle) figure).c.getX()) && delta(c.getY(), ((Triangle) figure).c.getY())));
         }
         return  false;
     }
 
     public static boolean delta(double value_1, double value_2){
-        if(Math.abs(value_1 - value_2) <= (Math.abs(value_1 - value_2)/Math.max(Math.abs(value_1), Math.abs(value_2)))){
-            return true;
-        }
-        return false;
+        return Math.abs(value_1 - value_2) <= (Math.abs(value_1 - value_2) / Math.max(Math.abs(value_1), Math.abs(value_2)));
     }
 }
 

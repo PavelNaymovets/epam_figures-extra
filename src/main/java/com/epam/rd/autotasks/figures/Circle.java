@@ -21,18 +21,13 @@ public class Circle extends Figure {
 
     public boolean isTheSame(Figure figure) {
         if (figure instanceof Circle) {
-            if (delta(centre.getX(), ((Circle) figure).centre.getX()) && delta(centre.getY(), ((Circle) figure).centre.getY()) && delta(radius, ((Circle) figure).radius)){
-                return true;
-            }
+            return delta(centre.getX(), ((Circle) figure).centre.getX()) && delta(centre.getY(), ((Circle) figure).centre.getY()) && delta(radius, ((Circle) figure).radius);
         }
         return false;
     }
 
     public static boolean delta(double value_1, double value_2){
-        if(Math.abs(value_1 - value_2) <= (Math.abs(value_1 - value_2)/Math.max(Math.abs(value_1), Math.abs(value_2)))){
-            return true;
-        }
-        return false;
+        return Math.abs(value_1 - value_2) <= (Math.abs(value_1 - value_2) / Math.max(Math.abs(value_1), Math.abs(value_2)));
     }
 }
 
