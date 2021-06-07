@@ -7,7 +7,7 @@ public class Quadrilateral extends Figure {
     Point d;
 
     public Quadrilateral(Point a, Point b, Point c, Point d) {
-        if (a == null || b == null || c == null || d == null) throw new IllegalArgumentException();
+        if ((a == null || b == null || c == null || d == null)  || ((a.getX() == b.getX()  && a.getX() == c.getX()) || (a.getY() == b.getY() && a.getY() == c.getY())) || ((a.getX() == b.getX() && a.getY() == b.getY()) || (a.getX() == c.getX() && a.getY() == c.getY()) || (a.getX() == d.getX() && a.getY() == d.getY()) || (b.getX() == c.getX() && b.getY() == c.getY()) || (b.getX() == d.getX() && b.getY() == d.getY()) || (c.getX() == d.getX() && c.getY() == d.getY()))) throw new IllegalArgumentException();
         this.a = a;
         this.b = b;
         this.c = c;
@@ -15,6 +15,8 @@ public class Quadrilateral extends Figure {
         if (area() == 0) {
             throw new IllegalArgumentException();
         } else if (!isConvex()) {
+            throw new IllegalArgumentException();
+        } else if ((((Math.abs((a.getX() - c.getX()) * (b.getY() - a.getY()) - (a.getX() - b.getX()) * (c.getY() - a.getY()))) / 2) == 0) || (((Math.abs((a.getX() - c.getX()) * (d.getY() - a.getY()) - (a.getX() - d.getX()) * (c.getY() - a.getY()))) / 2) == 0) || (((Math.abs((d.getX() - b.getX()) * (c.getY() - d.getY()) - (d.getX() - c.getX()) * (b.getY() - d.getY()))) / 2) == 0) || (((Math.abs((d.getX() - b.getX()) * (a.getY() - d.getY()) - (d.getX() - a.getX()) * (b.getY() - d.getY()))) / 2) == 0)){
             throw new IllegalArgumentException();
         }
     }
@@ -61,7 +63,7 @@ public class Quadrilateral extends Figure {
 
     public boolean isTheSame(Figure figure) {
         if (figure instanceof Quadrilateral) {
-            return ((delta(a.getX(), ((Quadrilateral) figure).a.getX()) && delta(a.getY(), ((Quadrilateral) figure).a.getY())) || (delta(a.getX(), ((Quadrilateral) figure).b.getX()) && delta(a.getY(), ((Quadrilateral) figure).b.getY())) || (delta(a.getX(), ((Quadrilateral) figure).c.getX()) && delta(a.getY(), ((Quadrilateral) figure).c.getY())) || (delta(a.getX(), ((Quadrilateral) figure).d.getX()) && delta(a.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(b.getX(), ((Quadrilateral) figure).a.getX()) && delta(b.getY(), ((Quadrilateral) figure).a.getY())) || (delta(b.getX(), ((Quadrilateral) figure).b.getX()) && delta(b.getY(), ((Quadrilateral) figure).b.getY())) || (delta(b.getX(), ((Quadrilateral) figure).c.getX()) && delta(b.getY(), ((Quadrilateral) figure).c.getY())) || (delta(b.getX(), ((Quadrilateral) figure).d.getX()) && delta(b.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(c.getX(), ((Quadrilateral) figure).a.getX()) && delta(c.getY(), ((Quadrilateral) figure).a.getY())) || (delta(c.getX(), ((Quadrilateral) figure).b.getX()) && delta(c.getY(), ((Quadrilateral) figure).b.getY())) || (delta(c.getX(), ((Quadrilateral) figure).c.getX()) && delta(c.getY(), ((Quadrilateral) figure).c.getY())) || (delta(c.getX(), ((Quadrilateral) figure).d.getX()) && delta(c.getY(), ((Quadrilateral) figure).d.getY())));
+            return ((delta(a.getX(), ((Quadrilateral) figure).a.getX()) && delta(a.getY(), ((Quadrilateral) figure).a.getY())) || (delta(a.getX(), ((Quadrilateral) figure).b.getX()) && delta(a.getY(), ((Quadrilateral) figure).b.getY())) || (delta(a.getX(), ((Quadrilateral) figure).c.getX()) && delta(a.getY(), ((Quadrilateral) figure).c.getY())) || (delta(a.getX(), ((Quadrilateral) figure).d.getX()) && delta(a.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(b.getX(), ((Quadrilateral) figure).a.getX()) && delta(b.getY(), ((Quadrilateral) figure).a.getY())) || (delta(b.getX(), ((Quadrilateral) figure).b.getX()) && delta(b.getY(), ((Quadrilateral) figure).b.getY())) || (delta(b.getX(), ((Quadrilateral) figure).c.getX()) && delta(b.getY(), ((Quadrilateral) figure).c.getY())) || (delta(b.getX(), ((Quadrilateral) figure).d.getX()) && delta(b.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(c.getX(), ((Quadrilateral) figure).a.getX()) && delta(c.getY(), ((Quadrilateral) figure).a.getY())) || (delta(c.getX(), ((Quadrilateral) figure).b.getX()) && delta(c.getY(), ((Quadrilateral) figure).b.getY())) || (delta(c.getX(), ((Quadrilateral) figure).c.getX()) && delta(c.getY(), ((Quadrilateral) figure).c.getY())) || (delta(c.getX(), ((Quadrilateral) figure).d.getX()) && delta(c.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(d.getX(), ((Quadrilateral) figure).a.getX()) && delta(d.getY(), ((Quadrilateral) figure).a.getY())) || (delta(d.getX(), ((Quadrilateral) figure).b.getX()) && delta(d.getY(), ((Quadrilateral) figure).b.getY())) || (delta(d.getX(), ((Quadrilateral) figure).c.getX()) && delta(d.getY(), ((Quadrilateral) figure).c.getY())) || (delta(d.getX(), ((Quadrilateral) figure).d.getX()) && delta(d.getY(), ((Quadrilateral) figure).d.getY())));
         }
         return false;
     }

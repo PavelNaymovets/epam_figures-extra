@@ -8,8 +8,8 @@ public class Triangle extends Figure {
     public Triangle(Point a, Point b, Point c){
         if((a == null || b == null || c == null) || ((a.getX() == b.getX()  && a.getX() == c.getX()) || (a.getY() == b.getY() && a.getY() == c.getY())) || ((a.getX() == b.getX() && a.getY() == b.getY()) || (a.getX() == c.getX() && a.getY() == c.getY()) || (b.getX() == c.getX() && b.getY() == c.getY())))throw new IllegalArgumentException();
         this.a = a;
-        this.a = b;
-        this.a = c;
+        this.b = b;
+        this.c = c;
         if(area() == 0) throw new IllegalArgumentException();
     }
 
