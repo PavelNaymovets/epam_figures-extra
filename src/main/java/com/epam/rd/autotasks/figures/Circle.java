@@ -5,7 +5,7 @@ public class Circle extends Figure {
     double radius;
 
     public Circle (Point centre, double radius){
-        if(radius == 0) throw new IllegalArgumentException();
+        if(centre == null || radius == 0 || radius < 0) throw new IllegalArgumentException();
         this.centre = centre;
         this.radius = radius;
         if(area() == 0) throw new IllegalArgumentException();
