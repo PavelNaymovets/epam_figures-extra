@@ -1,5 +1,7 @@
 package com.epam.rd.autotasks.figures;
 
+import java.math.BigDecimal;
+
 public class Circle extends Figure {
     Point centre;
     double radius;
@@ -27,7 +29,10 @@ public class Circle extends Figure {
     }
 
     public static boolean delta(double value_1, double value_2){
-        return Math.abs(value_1 - value_2) <= (Math.abs(value_1 - value_2) / Math.max(Math.abs(value_1), Math.abs(value_2)));
+        if(value_1 ==0 && value_2 == 0 ){
+            return true;
+        }
+        return Math.abs(value_1 - value_2) <= 0.0000000000000005;
     }
 }
 
