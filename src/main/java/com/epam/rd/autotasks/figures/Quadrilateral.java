@@ -67,8 +67,6 @@ public class Quadrilateral extends Figure {
         if (figure instanceof Quadrilateral) {
             if (((delta(a.getX(), ((Quadrilateral) figure).a.getX()) && delta(a.getY(), ((Quadrilateral) figure).a.getY())) || (delta(a.getX(), ((Quadrilateral) figure).b.getX()) && delta(a.getY(), ((Quadrilateral) figure).b.getY())) || (delta(a.getX(), ((Quadrilateral) figure).c.getX()) && delta(a.getY(), ((Quadrilateral) figure).c.getY())) || (delta(a.getX(), ((Quadrilateral) figure).d.getX()) && delta(a.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(b.getX(), ((Quadrilateral) figure).a.getX()) && delta(b.getY(), ((Quadrilateral) figure).a.getY())) || (delta(b.getX(), ((Quadrilateral) figure).b.getX()) && delta(b.getY(), ((Quadrilateral) figure).b.getY())) || (delta(b.getX(), ((Quadrilateral) figure).c.getX()) && delta(b.getY(), ((Quadrilateral) figure).c.getY())) || (delta(b.getX(), ((Quadrilateral) figure).d.getX()) && delta(b.getY(), ((Quadrilateral) figure).d.getY()))) && ((delta(c.getX(), ((Quadrilateral) figure).a.getX()) && delta(c.getY(), ((Quadrilateral) figure).a.getY())) || (delta(c.getX(), ((Quadrilateral) figure).b.getX()) && delta(c.getY(), ((Quadrilateral) figure).b.getY())) || (delta(c.getX(), ((Quadrilateral) figure).c.getX()) && delta(c.getY(), ((Quadrilateral) figure).c.getY())) || (delta(c.getX(), ((Quadrilateral) figure).d.getX()) && delta(c.getY(), ((Quadrilateral) figure).d.getY())))) {
                 return true;
-            } else {
-                return false;
             }
         }
         return false;

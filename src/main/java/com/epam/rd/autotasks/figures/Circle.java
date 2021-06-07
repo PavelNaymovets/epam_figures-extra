@@ -23,8 +23,6 @@ public class Circle extends Figure {
         if (figure instanceof Circle) {
             if (delta(centre.getX(), ((Circle) figure).centre.getX()) && delta(centre.getY(), ((Circle) figure).centre.getY()) && delta(radius, ((Circle) figure).radius)){
                 return true;
-            } else{
-                return false;
             }
         }
         return false;
