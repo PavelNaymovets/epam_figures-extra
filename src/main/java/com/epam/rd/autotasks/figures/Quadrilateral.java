@@ -42,19 +42,23 @@ public class Quadrilateral extends Figure {
     }
 
     public Point centroid() {
+        Point abc = new Triangle(a,b,c).centroid();
+        Point bcd = new Triangle(b,c,d).centroid();
+        Point cda = new Triangle(c,d,a).centroid();
+        Point dab = new Triangle(d,a,b).centroid();
         //      ac_diagonal
-//      bd_diagonal
-        double A1 = (a.getY() - c.getY()) / (a.getX() - c.getX());
-        double A2 = (b.getY() - d.getY()) / (b.getX() - d.getX());
-        double b1 = a.getY() - A1 * a.getX();
-        double b2 = b.getY() - A2 * b.getX();
-        double delta = (a.getX() - c.getX()) * (b.getY() - d.getY()) - (a.getY() - c.getY()) * (b.getX() - d.getX());
+        //      bd_diagonal
+        double A1 = (dab.getY() - bcd.getY()) / (dab.getX() - bcd.getX());
+        double A2 = (abc.getY() - cda.getY()) / (abc.getX() - cda.getX());
+        double b1 = dab.getY() - A1 * dab.getX();
+        double b2 = abc.getY() - A2 * abc.getX();
+        double delta = (dab.getX() - bcd.getX()) * (abc.getY() - cda.getY()) - (dab.getY() - bcd.getY()) * (abc.getX() - cda.getX());
 
         //Xa - абсцисса точки пересечения двух прямых
         double Xa = (b2 - b1) / (A1 - A2);
         double Ya = A1 * Xa + b1;
 
-        if (delta != 0 && (Xa <= Math.max(a.getX(), c.getX())) && (Xa >= Math.min(a.getX(), c.getX())) && (Xa <= Math.max(b.getX(), d.getX())) && (Xa >= Math.min(b.getX(), d.getX()))) {
+        if (delta != 0 && (Xa <= Math.max(dab.getX(), bcd.getX())) && (Xa >= Math.min(dab.getX(), bcd.getX())) && (Xa <= Math.max(abc.getX(), cda.getX())) && (Xa >= Math.min(abc.getX(), cda.getX()))) {
             return new Point(Xa, Ya);
         } else {
             return null;
